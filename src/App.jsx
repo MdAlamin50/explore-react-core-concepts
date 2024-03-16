@@ -6,15 +6,30 @@ import './App.css'
 function App() { 
   return (
     <>  
-      <h1>Vite + React</h1>   
+      <h1>Vite + React</h1>  
+      <Device name="Laptop" price="33333"></Device> 
+      <Device name="mobile" price="2233"></Device> 
+      <Device name="watch" price="330"></Device> 
       <Person></Person>
       <Person></Person>
       <Person></Person>
-      <Student></Student>
+      <Student grade='8' score='90'> </Student>
+      <Student grade='9' score='95'> </Student>
+      <Student grade='10' score='100'> </Student>
+     
                   
     </>
   )
 }
+
+function Device(props){
+  // console.log(props)
+  return(
+  <h2>this is deviece:{props.name} price:{props.price}</h2>
+  )
+}
+
+
 function Person(){
   const age =23;
   const price=12;
@@ -22,12 +37,22 @@ function Person(){
   return <h2>I am a {person.name} with age:    {age+price}</h2>
 }
 
-function Student(){
+const {grade,score} = {grade:'8', score:'90'};
+
+function Student({grade,score}){
+  console.log(grade,score);
+  const devo={
+    margin:'20px',
+    padding:'30px',
+    border:'3px solid purple',
+    borderRadius:'20px'
+  
+  }
   return (
-  <div>
+  <div style={devo}>
     <h3>This is a Student</h3>
-    <p>name:MD.Alamin</p>
-    <p>age:20 yers</p>
+     <p>Class: {grade} </p>
+     <p>score: {score} </p>
   </div>
   )
 }
